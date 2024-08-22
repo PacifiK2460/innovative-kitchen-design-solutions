@@ -1,40 +1,64 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { cn } from "@/components/lib/utils"
-import { NextUIProvider } from "@nextui-org/react";
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+import { Link } from "@nextui-org/link";
+import clsx from "clsx";
 
-import "./globals.css";
+import { Providers } from "./providers";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "IKS",
-  description: "Demo site for Kitchen Design Solutions by Santiago Lara",
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
-import Navbar from "@/components/navbar";
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        inter.variable
-      )}>
-        <NextUIProvider>
-          <Navbar />
-          {children}
-        </NextUIProvider>
+    <html suppressHydrationWarning lang="en">
+      <head />
+      <body
+        className={clsx(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <div className="relative flex flex-col h-screen">
+            <Navbar />
+            <main>{children}</main>
+            <footer className="w-full flex items-center justify-center py-3 bg-primary text-white">
+              <Link
+                isExternal
+                className="flex items-center gap-1 text-white font-bold"
+                href="https://santiago-lara.dev"
+                title="by Santiago Lara"
+              >
+                <span className="text-default-600">by</span>
+                <p>Santiago Lara</p>
+              </Link>
+            </footer>
+          </div>
+        </Providers>
       </body>
     </html>
-
   );
 }
