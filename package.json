@@ -1,5 +1,5 @@
 {
-	"name": "next-app-template",
+	"name": "innovative-kitchen-design-solutions",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -9,6 +9,7 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@cloudflare/next-on-pages": "^1.13.2",
 		"@nextui-org/button": "2.0.37",
 		"@nextui-org/code": "2.0.32",
 		"@nextui-org/input": "2.2.4",
