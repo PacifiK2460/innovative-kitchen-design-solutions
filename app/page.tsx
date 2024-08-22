@@ -1,5 +1,5 @@
-// import Image from "next/image";
-// import { Button } from "@/components/ui/button"
+export const runtime = "edge";
+
 import { CardComponent } from "@/components/ui/card-image";
 import Link from "next/link";
 import { ArrowRightIcon } from '@radix-ui/react-icons';
@@ -25,7 +25,7 @@ export default function Home() {
             Transforming Kitchens With Expertise
           </h2>
           <Button radius="none" variant="ghost" className="bg-white text-black" >
-            <Link href="https://santiago-lara.dev" target="_blank">Conocer Más</Link>
+            <Link href="https://santiago-lara.dev" target="_blank">Check Out</Link>
           </Button>
         </div>
       </section>
@@ -47,7 +47,7 @@ export default function Home() {
             <Button radius="none" className="my-5 gap-2 bg-black text-white" endContent={
               <ArrowRightIcon />
             }>
-              Conocer Más
+              Check Out
             </Button>
           </Link>
         </div>
