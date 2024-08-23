@@ -1,15 +1,17 @@
 {
-	"name": "innovative-kitchen-design-solutions",
+	"name": "next-app-template",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
+		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
+		"pages:build": "npx @cloudflare/next-on-pages",
+		"preview": "npm run pages:build && wrangler pages dev",
+		"deploy": "npm run pages:build && wrangler pages deploy"
 	},
 	"dependencies": {
-		"@cloudflare/next-on-pages": "^1.13.2",
 		"@nextui-org/button": "2.0.37",
 		"@nextui-org/code": "2.0.32",
 		"@nextui-org/input": "2.2.4",

@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -37,22 +37,22 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-white font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div>
             <Navbar />
             <main>{children}</main>
-            <footer className="w-full flex items-center justify-center py-3 bg-primary text-white">
+            <footer className="w-full flex items-center justify-center py-3 bg-primary  text-white">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-white font-bold"
                 href="https://santiago-lara.dev"
                 title="by Santiago Lara"
               >
-                <span className="text-default-600">by</span>
+                <span className="font-thin text-white">by</span>
                 <p>Santiago Lara</p>
               </Link>
             </footer>

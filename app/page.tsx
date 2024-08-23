@@ -1,4 +1,5 @@
-// export const runtime = "edge";
+"use client";
+export const runtime = "edge";
 
 import Link from "next/link";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
