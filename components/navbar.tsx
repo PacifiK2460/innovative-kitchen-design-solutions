@@ -19,7 +19,7 @@ import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar className="bg-white/85" maxWidth="xl" position="sticky">
+    <NextUINavbar className="bg-white/85 text-black" maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -27,15 +27,13 @@ export const Navbar = () => {
             <p className="font-bold text-inherit">IKDS</p>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
+        <ul className="hidden lg:flex gap-4 justify-start ml-2 text-black">
           {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
+            <NavbarItem key={item.href} className="text-black">
               <NextLink
                 className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium text-black",
                 )}
-                color="foreground"
                 href={item.href}
               >
                 {item.label}
